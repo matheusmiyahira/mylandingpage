@@ -1,3 +1,34 @@
+/* COLOR PALLET
+
+#19181A
+#272727 --> my favorite light black 
+#F7F9FB --> my favorite white
+#FAED26 --> my favorite yellow
+#7395AE --> 
+#659DBD -->
+#88BDBC
+#29648A
+#17252A
+#78244C
+#4285F4
+#3B8BEB
+#F4976C
+#B4DFE5
+#D2FDFF
+#F78888
+#F3D250
+#90CCF4
+#5DA2D5
+#C96567
+#77A6F7
+#00887A
+#844D36
+#4D6D9A
+#99CED3
+#EDB5BF
+
+*/
+
 * {
   padding: 0;
   margin: 0;
@@ -8,6 +39,45 @@ body {
   background-color: rgba(0, 0, 0, 0.9);
   color: #ffffff;
   font-family: "Segou UI", sans-serif, Tahoma, Genova, Verdana;
+}
+
+nav {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  min-height: 8vh;
+  background-color: #f3d250;
+  font-family: "Poppins", sans-serif;
+}
+.nav-logo {
+  color: #272727;
+  text-transform: uppercase;
+  letter-spacing: 5px;
+  font-size: 20px;
+}
+.nav-links {
+  display: flex;
+  width: 30%;
+  justify-content: space-around;
+}
+.nav-links li {
+  list-style: none;
+}
+.nav-links a {
+  color: #272727;
+  text-decoration: none;
+  letter-spacing: 3px;
+  font-weight: bold;
+  font-size: 14px;
+}
+.burger {
+  display: none;
+}
+.burger div {
+  width: 25px;
+  height: 3px;
+  background-color: #272727;
+  margin: 5px;
 }
 
 .landing::after {
@@ -99,6 +169,54 @@ footer {
   padding: 2.2rem;
 }
 
+@media screen and (max-width: 1024px) {
+  .nav-links {
+    width: 40%;
+  }
+}
+
+/* Mid-Screens Down*/
+@media screen and (max-width: 786px) {
+  body {
+    overflow-x: hidden;
+  }
+  .nav-links {
+    position: absolute;
+    right: 0px;
+    height: 92vh;
+    top: 8vh;
+    background-color: #f3d250;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 50%;
+    z-index: 2;
+    transform: translateX(100%);
+    transition: transform 0.5s ease-out;
+  }
+  nav-links li {
+    opacity: 0;
+  }
+  .burger {
+    display: block;
+    cursor: pointer;
+  }
+}
+.nav-active {
+  transform: translateX(0%);
+  transition: transform 0.5s ease-in;
+}
+@keyframes navLinkFade {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacoty: 1;
+    transform: translateX(0px);
+  }
+}
+
 /* Small Screens */
 @media (max-width: 560px) {
   .landing::after {
@@ -122,4 +240,3 @@ footer {
     padding: 1.2rem 1rem;
   }
 }
- 
